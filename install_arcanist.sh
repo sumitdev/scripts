@@ -3,7 +3,7 @@
 # force script to stop on error
 set -e
 
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -y php5 php5-curl < "/dev/null" ;
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y php5 php5-cli php5-curl < "/dev/null" ;
 PHAB_DIR=$HOME/phabricator
 echo "creating directory $PHAB_DIR"
 mkdir -p $PHAB_DIR
