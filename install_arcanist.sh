@@ -11,10 +11,11 @@ git clone https://github.com/phacility/libphutil.git $PHAB_DIR/libphutil
 git clone https://github.com/phacility/arcanist.git $PHAB_DIR/arcanist
 
 echo "export PATH=\"\$PATH:$PHAB_DIR/arcanist/bin/\"" >> ~/.bashrc
+export PATH="$PATH:$PHAB_DIR/arcanist/bin/"
 echo "source $PHAB_DIR/arcanist/resources/shell/bash-completion" >> ~/.bashrc
 #echo "export PATH=\"\$PATH:$PHAB_DIR/arcanist/bin/\"" >> ~/.profile
 
-source ~/.bashrc
+
 arc install-certificate
 
 
