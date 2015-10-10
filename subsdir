@@ -1,0 +1,12 @@
+#!/bin/sh
+
+#Usage: find . -name "*.mp4" -print0 | xargs -0 -I{} subsdir "{}"
+# find . -regex ".*\.\(mp4\|mkv|avi\)$" -print0 | xargs -0 -I{} subsdir "{}"
+echo "finding subs for $1"
+
+vfile=$(basename "$1")
+dir=$(dirname "$1")
+
+cd "$dir"; subs "$vfile" ; 
+
+

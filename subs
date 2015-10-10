@@ -1,0 +1,32 @@
+#!/bin/sh
+
+echo "finding subs for $1"
+
+fileWithoutExt=${1%.*}
+sameNameSrt="$fileWithoutExt.srt"
+subFile=$(ls *.srt)
+if [ ! -z "$subFile" ]; then
+count=$(ls *.srt | wc -l)
+	if [ $count -gt 1 ]; then
+	echo "Multiple srt files found $subFile, exiting"
+	exit 0
+	fi
+fi
+
+if [ ! -z "$subFile" ] && [ "$sameNameSrt" != "$subFile" ]; then 
+echo "Srt $subFile found, Renaming $subFile to $sameNameSrt"
+mv "$subFile" "$sameNameSrt" 
+exit 0
+fi
+
+if [ -z "$subFile" ]; then
+echo "Downloading subs using subdownloader"
+subdownloader -c -q -l en $1
+subFile=$(ls *.srt)
+echo "Downloaded $subFile"
+echo "Renaming $subFile to $sameNameSrt"
+mv "$subFile" "$sameNameSrt"
+else
+echo "Sub $subFile already exists"
+fi
+
