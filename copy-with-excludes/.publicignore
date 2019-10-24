@@ -1,0 +1,8 @@
+
+
+.publicignore
+pom.xml
+.mvn/
+.git/
+test.txt
+obj.json

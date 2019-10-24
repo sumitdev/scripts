@@ -1,0 +1,2 @@
+
+du -sh $1/* | sort -hr
